@@ -48,7 +48,7 @@ class CrimeListFragment : Fragment() {
             val crime = crimes[position]
             holder.apply {
                 titleTextView.text = crime.title
-                dateTextView.text = crime.date.toString(
+                dateTextView.text = crime.date.toString()
             }
         }
     }
