@@ -33,6 +33,9 @@ class CrimeListFragment : Fragment() {
         crimeRecyclerView.layoutManager = LinearLayoutManager(context)
         return view
     }
+    private inner class CrimeHolder(view: View)
+        : RecyclerView.ViewHolder(view) {
+    }
 
 
     companion object {
