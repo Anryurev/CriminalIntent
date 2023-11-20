@@ -73,11 +73,9 @@ class CrimeFragment : Fragment()  {
     }
 
     companion object {
-        fun newInstance(crimeId: UUID):
-                CrimeFragment {
+        fun newInstance(crimeId: UUID): CrimeFragment {
             val args = Bundle().apply {
-                putSerializable(ARG_CRIME_ID,
-                    crimeId)
+                putSerializable(ARG_CRIME_ID, crimeId)
             }
             return CrimeFragment().apply {
                 arguments = args
