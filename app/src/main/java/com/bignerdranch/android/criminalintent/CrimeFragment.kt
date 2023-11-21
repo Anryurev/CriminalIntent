@@ -32,12 +32,9 @@ class CrimeFragment : Fragment()  {
         super.onCreate(savedInstanceState)
         crime = Crime()
         val crimeId: UUID = arguments?.getSerializable(ARG_CRIME_ID) as UUID
-
+        crimeDetailViewModel.loadCrime(crimeId)
     }
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_crime, container, false)
         titleField = view.findViewById(R.id.crime_title) as EditText
         dateButton = view.findViewById(R.id.crime_date) as Button
@@ -62,8 +59,7 @@ class CrimeFragment : Fragment()  {
     }
     override fun onStart() {
         super.onStart()
-        val titleWatcher = object : TextWatcher
-        {
+        val titleWatcher = object : TextWatcher {
             override fun beforeTextChanged(
                 sequence: CharSequence?,
                 start: Int,
@@ -105,10 +101,7 @@ class CrimeFragment : Fragment()  {
             isChecked = crime.isSolved
             jumpDrawablesToCurrentState()
         }
-
     }
-
-
     companion object {
         fun newInstance(crimeId: UUID): CrimeFragment {
             val args = Bundle().apply {
