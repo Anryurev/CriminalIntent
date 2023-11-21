@@ -23,14 +23,13 @@ class DatePickerFragment : DialogFragment() {
                     (fragment as Callbacks).onDateSelected(resultDate)
                 }
             }
-
         val date = arguments?.getSerializable(ARG_DATE) as Date
         val calendar = Calendar.getInstance()
         calendar.time = date
         val initialYear = calendar.get(Calendar.YEAR)
         val initialMonth = calendar.get(Calendar.MONTH)
         val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
-        return DatePickerDialog(requireContext(), null, initialYear, initialMonth, initialDay)
+        return DatePickerDialog(requireContext(), dateListener, initialYear, initialMonth, initialDay)
     }
 
     companion object {
